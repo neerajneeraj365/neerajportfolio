@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const About = () => {
   return (
     <section>
-      <div className="flex flex-col  lg:flex-row justify-between items-center">
+      <div className="flex flex-col xl:flex-row justify-between items-center">
         <div className="flex flex-1 flex-col gap-7">
           <h1 className="text-lg md:text-2xl font-semibold md:tracking-wide">
             Get to know about{" "}
@@ -62,7 +62,7 @@ const About = () => {
           />
         </div>
       </div>
-      <div className="grid grid-rows-2 md:grid-rows-1 grid-flow-col my-2 md:my-6 lg:my-8">
+      <div className="grid grid-rows-2 gap-2 md:gap-4 lg:gap-6 md:grid-rows-1 grid-flow-col my-2 md:my-6 lg:my-8">
         <div className="">
           <span className="text-lg md:text-xl font-semibold">
             🖥️ Area of Expertise
@@ -70,7 +70,7 @@ const About = () => {
           <p className="md:tracking-wide">
             UI/UX Design <br />
             Responsive Web Development <br />
-            Front-end and back-end Development <br />
+            Front-end & back-end Development <br />
             API Development and Integration <br />
             Databases <br />
             Deployment <br />

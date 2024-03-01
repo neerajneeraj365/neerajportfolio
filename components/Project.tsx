@@ -14,7 +14,7 @@ const projects = [
     tags: ["NextJS,", " ", "Shadcn UI,", " ", "MUI"],
     description: "This is my portfolio made with NextJS",
     image: "/comingsoon.jpg",
-    url: "/",
+    url: "#",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const projects = [
     tags: ["project", " ", "design"],
     description: "Project 2 description",
     image: "/comingsoon.jpg",
-    url: "/",
+    url: "#",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const projects = [
     tags: ["project", " ", "design"],
     description: "Project 3 description",
     image: "/comingsoon.jpg",
-    url: "/",
+    url: "#",
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const projects = [
     tags: ["project", " ", "design"],
     description: "Project 4 description",
     image: "/comingsoon.jpg",
-    url: "/",
+    url: "#",
   },
 ];
 
