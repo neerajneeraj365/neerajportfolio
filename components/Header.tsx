@@ -15,7 +15,6 @@ import { useState } from "react";
 const Header = () => {
   const [sheetOpen, setSheetOpen] = useState(false);
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <nav className="flex mx-5 h-28 text-lg justify-between items-center md:mx-10 sticky top-0">
       <div className="block md:hidden font-bold">
@@ -57,7 +56,13 @@ const Header = () => {
                 </li>
 
                 <li>
-                  <Link href="/Resume.pdf" target="_blank">Resume</Link>
+                  <Link href="/Resume.pdf" target="_blank">
+                    Resume
+                  </Link>
+                  <hr />
+                </li>
+                <li>
+                  <Link href="/form">Say Hi</Link>
                   <hr />
                 </li>
               </ul>
@@ -71,7 +76,11 @@ const Header = () => {
           <li>
             <Link
               href="/"
-              className={cn("") + pathname == "/" ? "text-black" : ""}
+              className={
+                cn("") + pathname == "/"
+                  ? "text-black font-normal underline"
+                  : ""
+              }
             >
               Work
             </Link>
@@ -79,13 +88,31 @@ const Header = () => {
           <li>
             <Link
               href="/about"
-              className={cn("") + pathname == "/about" ? "text-black" : ""}
+              className={
+                cn("") + pathname == "/about"
+                  ? "text-black font-normal underline"
+                  : ""
+              }
             >
               About
             </Link>
           </li>
           <li>
-            <Link href="/Resume.pdf" target="_blank">Resume</Link>
+            <Link href="/Resume.pdf" target="_blank">
+              Resume
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/form"
+              className={
+                cn("") + pathname == "/form"
+                  ? "text-black font-normal underline"
+                  : ""
+              }
+            >
+              Say Hi
+            </Link>
           </li>
         </ul>
       </div>
