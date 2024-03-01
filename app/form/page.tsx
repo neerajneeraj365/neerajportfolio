@@ -43,7 +43,7 @@ const FormPage = () => {
       <div className="flex justify-center items-center">
         <Image src="/greet.png" alt="Form Image" height="500" width="500" />
       </div>
-      <div className="flex flex-col gap-6 md:gap-8 my-8 md:w-1/2">
+      <div className="flex flex-col gap-6 md:gap-8 my-8 lg:w-1/2">
         <p className="text-md">Say Hi to me...</p>
         <p className="text-md text-gray-400">
           The Form is in build. Maintainence going on....
