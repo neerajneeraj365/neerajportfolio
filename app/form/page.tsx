@@ -40,8 +40,8 @@ const FormPage = () => {
   }
   return (
     <div className="flex flex-col lg:flex-row">
-      <div className="flex justify-center items-center">
-        <Image src="/greet.png" alt="Form Image" height="500" width="500" />
+      <div className="flex justify-center items-center flex-1">
+        <Image src="/greet.png" alt="Form Image" height="500" width="400" />
       </div>
       <div className="flex flex-col gap-6 md:gap-8 my-8 lg:w-1/2">
         <p className="text-md">Say Hi to me...</p>

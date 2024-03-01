@@ -18,10 +18,10 @@ const Hero = () => {
           <span>
             <Link
               href="https://www.secpod.com/about-us/"
-              className="text-black underline"
+              className="underline bg-gradient-to-r from-[#0a589f] to-[#1da54d] text-transparent bg-clip-text"
               target="_blank"
             >
-              Secpod
+              Secpod 🔗
             </Link>
           </span>
           <br />
@@ -39,16 +39,16 @@ const Hero = () => {
           <span>
             <Link
               href="https://www.conestogac.on.ca/about"
-              className="text-black underline"
+              className="underline bg-gradient-to-r from-[#b69763] to-[#b69763] text-transparent bg-clip-text"
               target="_blank"
             >
-              Conestoga College
+              Conestoga College 🔗
             </Link>
           </span>
         </p>
       </div>
-      <div className="">
-        <Image src="/join.png" height="400" width="400" alt="Profile Image" />
+      <div className="flex justify-center items-center h-[400px] w-[400px]">
+        <Image src="/join.png" height="300" width="300" alt="Profile Image" />
       </div>
     </section>
   );

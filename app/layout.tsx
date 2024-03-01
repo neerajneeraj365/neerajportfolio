@@ -4,6 +4,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ThemeProvider } from "@/components/theme-provider"
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -23,9 +24,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
+      <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
         <Header />
-        <div className="mx-10 md:mx-40 lg:mx-80">{children}</div>
+        <div className="mx-10 md:mx-40 lg:mx-80">
+          {children}</div>
         <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

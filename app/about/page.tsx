@@ -24,7 +24,7 @@ const About = () => {
             <span>
               <Link
                 href="https://www.conestogac.on.ca/about"
-                className="text-black underline"
+                className="underline bg-gradient-to-r from-[#b69763] to-[#b69763] text-transparent bg-clip-text"
                 target="_blank"
               >
                 Conestoga College
@@ -53,11 +53,11 @@ const About = () => {
             real-world user experiences.
           </p>
         </div>
-        <div className="flex-1">
+        <div className="flex h-[400px] w-[400px] justify-center items-center">
           <Image
             src="/certificate.png"
-            height="400"
-            width="400"
+            height="300"
+            width="300"
             alt="Profile Image"
           />
         </div>

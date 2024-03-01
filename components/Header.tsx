@@ -11,12 +11,13 @@ import {
 } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react";
 import { useState } from "react";
+import { ModeToggle } from "./ModeToggle";
 
 const Header = () => {
   const [sheetOpen, setSheetOpen] = useState(false);
   const pathname = usePathname();
   return (
-    <nav className="flex mx-5 h-28 text-lg justify-between items-center md:mx-10 sticky top-0">
+    <nav className="flex mx-5 h-28 text-lg justify-between items-center md:mx-10 sticky top-0 z-50">
       <div className="block md:hidden font-bold">
         <Link href="/">NN.</Link>
       </div>
@@ -26,7 +27,8 @@ const Header = () => {
         </Link>
       </div>
       {/* For Mobile */}
-      <div className="block md:hidden ">
+      <div className="flex md:hidden items-center">
+        <ModeToggle />
         <Sheet>
           <SheetTrigger>
             <MenuIcon />
@@ -37,33 +39,42 @@ const Header = () => {
                 <li>
                   <Link
                     href="/"
-                    className={cn("") + pathname == "/" ? "text-black" : ""}
+                    className={
+                      cn("") + pathname == "/" ? "font-normal underline" : ""
+                    }
                   >
                     Work
                   </Link>
-                  <hr />
                 </li>
                 <li>
                   <Link
                     href="/about"
                     className={
-                      cn("") + pathname == "/about" ? "text-black" : ""
+                      cn("") + pathname == "/about"
+                        ? "font-normal underline"
+                        : ""
                     }
                   >
                     About
                   </Link>
-                  <hr />
                 </li>
 
                 <li>
                   <Link href="/Resume.pdf" target="_blank">
                     Resume
                   </Link>
-                  <hr />
                 </li>
                 <li>
-                  <Link href="/form">Say Hi</Link>
-                  <hr />
+                  <Link
+                    href="/form"
+                    className={
+                      cn("") + pathname == "/form"
+                        ? "font-normal underline"
+                        : ""
+                    }
+                  >
+                    Say Hi
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -72,14 +83,12 @@ const Header = () => {
       </div>
       {/* For desktop */}
       <div className="hidden md:block md:font-light text-gray-400">
-        <ul className="flex gap-10 transition ease-in-out delay-150 ">
+        <ul className="flex gap-10 transition ease-in-out delay-150 items-center">
           <li>
             <Link
               href="/"
               className={
-                cn("") + pathname == "/"
-                  ? "text-black font-normal underline"
-                  : ""
+                cn("") + pathname == "/" ? "font-normal underline" : ""
               }
             >
               Work
@@ -89,9 +98,7 @@ const Header = () => {
             <Link
               href="/about"
               className={
-                cn("") + pathname == "/about"
-                  ? "text-black font-normal underline"
-                  : ""
+                cn("") + pathname == "/about" ? " font-normal underline" : ""
               }
             >
               About
@@ -106,13 +113,14 @@ const Header = () => {
             <Link
               href="/form"
               className={
-                cn("") + pathname == "/form"
-                  ? "text-black font-normal underline"
-                  : ""
+                cn("") + pathname == "/form" ? "font-normal underline" : ""
               }
             >
               Say Hi
             </Link>
+          </li>
+          <li>
+            <ModeToggle />
           </li>
         </ul>
       </div>
