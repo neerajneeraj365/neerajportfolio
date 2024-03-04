@@ -1,21 +1,28 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import emailjs from "@emailjs/browser";
 
 const Form = () => {
-  const form = useRef<HTMLInputElement>(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const sendEmail = (e: any) => {
-    e.preventDefault();
+  const sendEmail = () => {
+    
+    const templateParams = JSON.stringify({
+      from_name: email,
+      to_name: "Neeraj",
+      message,
+    });
 
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_SERVICE_KEY || "",
-        process.env.NEXT_PUBLIC_TEMPLATE_KEY || "",
-        form.current,
+        process.env.NEXT_PUBLIC_SERVICE_KEY ?? "",
+        process.env.NEXT_PUBLIC_TEMPLATE_KEY ?? "",
+        templateParams,
         {
           publicKey: process.env.NEXT_PUBLIC_KEY,
         }
@@ -23,7 +30,9 @@ const Form = () => {
       .then(
         () => {
           console.log("SUCCESS!");
-          form.current.reset();
+          setName("");
+          sendEmail();
+          setMessage("");
         },
         (error) => {
           console.log("FAILED...", error.text);
@@ -43,23 +52,29 @@ const Form = () => {
             nikatwork@gmail.com
           </Link>
         </p>
-        <form ref={form} onSubmit={sendEmail}>
+        <form onSubmit={sendEmail}>
           <div className="flex flex-col w-full gap-4">
             <input
               type="text"
               name="name"
+              value={name}
               className="border-gray-200 border-b-2 h-10 bg-transparent outline-none"
               placeholder="John Smith"
+              onChange={(e: any) => setName(e.target.value)}
             />
             <input
               type="email"
               name="email"
+              value={email}
+              onChange={(e: any) => setEmail(e.target.value)}
               className="border-gray-200 border-b-2 h-10 bg-transparent outline-none"
               placeholder="xyz@gmail.com"
             />
 
             <textarea
               name="message"
+              value={message}
+              onChange={(e: any) => setMessage(e.target.value)}
               id="textarea"
               rows={5}
               className="border-gray-200 border-b-2 bg-transparent outline-none resize-none"
