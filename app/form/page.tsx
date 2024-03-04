@@ -1,102 +1,81 @@
 "use client";
 
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import Image from "next/image";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import Link from "next/link";
+import emailjs from "@emailjs/browser";
 
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email(),
-  message: z.string().min(1, {
-    message: "Message must be at least 2 character.",
-  }),
-});
+const Form = () => {
+  const form = useRef<HTMLInputElement>(null);
 
-const FormPage = () => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_SERVICE_KEY,
+        process.env.NEXT_PUBLIC_TEMPLATE_KEY,
+        form.current,
+        {
+          publicKey: process.env.NEXT_PUBLIC_KEY,
+        }
+      )
+      .then(
+        () => {
+          console.log("SUCCESS!");
+          form.current.reset();
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
   return (
-    <div className="flex flex-col lg:flex-row">
-      <div className="flex justify-center items-center flex-1">
-        <Image src="/greet.png" alt="Form Image" height="500" width="400" />
-      </div>
+    <div className="flex flex-col w-full justify-center items-center">
       <div className="flex flex-col gap-6 md:gap-8 my-8 lg:w-1/2">
-        <p className="text-md">Say Hi to me...</p>
+        <p className="text-lg">Say Hi to me...</p>
         <p className="text-md text-gray-400">
-          The Form is in build. Maintainence going on....
+          If the form doesn't work, Please contact me on{" "}
+          <Link
+            href="mailto:nikatwork365@gmail.com"
+            className="underline text-blue-700"
+          >
+            nikatwork@gmail.com
+          </Link>
         </p>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-              control={form.control}
+        <form ref={form} onSubmit={sendEmail}>
+          <div className="flex flex-col w-full gap-4">
+            <input
+              type="text"
               name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Abcdef" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              className="border-gray-200 border-b-2 h-10 bg-transparent outline-none"
+              placeholder="John Smith"
             />
-            <FormField
-              control={form.control}
+            <input
+              type="email"
               name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="xyz@gmail.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              className="border-gray-200 border-b-2 h-10 bg-transparent outline-none"
+              placeholder="xyz@gmail.com"
             />
-            <FormField
-              control={form.control}
+
+            <textarea
               name="message"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Message</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Write your message" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+              id="textarea"
+              rows={5}
+              className="border-gray-200 border-b-2 bg-transparent outline-none resize-none"
+              placeholder="Write your message..."
             />
-            <Button type="submit" className="">
+            <Button
+              className="flex justify-center items-center my-4"
+              onClick={sendEmail}
+            >
               Submit
             </Button>
-          </form>
-        </Form>
+          </div>
+        </form>
       </div>
     </div>
   );
 };
 
-export default FormPage;
+export default Form;

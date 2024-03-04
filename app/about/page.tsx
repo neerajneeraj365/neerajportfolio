@@ -45,12 +45,12 @@ const About = () => {
           and a growth-oriented mindset, I am constantly seeking opportunities
           to expand my knowledge and skills as a designer. */}
             I will study your business requirements, build them, and bring them
-            into the real world. With six months of hands-on experience, I
-            bring enthusiasm and a solid foundation in both front-end and
-            back-end technologies to the table. Also, with a fresh perspective
-            and a robust understanding of design principles, my commitment
-            extends to translating your business requirements into compelling,
-            real-world user experiences.
+            into the real world. With six months of hands-on experience, I bring
+            enthusiasm and a solid foundation in both front-end and back-end
+            technologies to the table. Also, with a fresh perspective and a
+            robust understanding of design principles, my commitment extends to
+            translating your business requirements into compelling, real-world
+            user experiences.
           </p>
         </div>
         <div className="flex h-[400px] w-[400px] justify-center items-center">
@@ -63,14 +63,15 @@ const About = () => {
         </div>
       </div>
       <div className="grid grid-rows-2 gap-2 md:gap-4 lg:gap-6 md:grid-rows-1 grid-flow-col my-2 md:my-6 lg:my-8">
-        <div className="">
+        <div>
           <span className="text-lg md:text-xl font-semibold">
             🖥️ Area of Expertise
           </span>
           <p className="md:tracking-wide">
             UI/UX Design <br />
             Responsive Web Development <br />
-            Front-end & back-end Development <br />
+            Front-end Development <br />
+            Backend Development <br />
             API Development and Integration <br />
             Databases <br />
             Deployment <br />

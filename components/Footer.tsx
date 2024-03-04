@@ -6,7 +6,7 @@ import EmailIcon from "@mui/icons-material/Email";
 
 export const Footer = () => {
   return (
-    <footer className="flex justify-center items-center h-40">
+    <footer className="flex justify-center items-center h-20">
       <div className="flex items-center">
         <span className="text-md md:text-lg">Let's Connect:</span>
         <ul className="flex px-2 gap-2">
