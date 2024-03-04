@@ -13,8 +13,8 @@ const Form = () => {
 
     emailjs
       .sendForm(
-        process.env.NEXT_PUBLIC_SERVICE_KEY,
-        process.env.NEXT_PUBLIC_TEMPLATE_KEY,
+        process.env.NEXT_PUBLIC_SERVICE_KEY || "",
+        process.env.NEXT_PUBLIC_TEMPLATE_KEY || "",
         form.current,
         {
           publicKey: process.env.NEXT_PUBLIC_KEY,
