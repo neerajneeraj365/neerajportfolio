@@ -21,12 +21,12 @@ const Hero = () => {
               className="underline bg-gradient-to-r from-[#0a589f] to-[#1da54d] text-transparent bg-clip-text"
               target="_blank"
             >
-              Secpod 🔗
+              Secpod
             </Link>
           </span>
           <br />
           {/* Graduated from{" "} */}
-          Studying in {" "}
+          Studying in{" "}
           {/* <span>
             <Link
               href="https://www.secpod.com/about-us/"
@@ -39,10 +39,10 @@ const Hero = () => {
           <span>
             <Link
               href="https://www.conestogac.on.ca/about"
-              className="underline bg-gradient-to-r from-[#b69763] to-[#b69763] text-transparent bg-clip-text"
+              className="text-yellow-600"
               target="_blank"
             >
-              Conestoga College 🔗
+              Conestoga College
             </Link>
           </span>
         </p>

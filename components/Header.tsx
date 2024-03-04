@@ -39,9 +39,10 @@ const Header = () => {
                 <li>
                   <Link
                     href="/"
-                    className={
-                      cn("") + pathname == "/" ? "font-normal underline" : ""
-                    }
+                    className={cn(
+                      "",
+                      pathname == "/" ? "font-normal underline" : ""
+                    )}
                   >
                     Work
                   </Link>
@@ -49,11 +50,10 @@ const Header = () => {
                 <li>
                   <Link
                     href="/about"
-                    className={
-                      cn("") + pathname == "/about"
-                        ? "font-normal underline"
-                        : ""
-                    }
+                    className={cn(
+                      "",
+                      pathname == "/about" ? "font-normal underline" : ""
+                    )}
                   >
                     About
                   </Link>
@@ -68,9 +68,9 @@ const Header = () => {
                   <Link
                     href="/form"
                     className={
-                      cn("") + pathname == "/form"
-                        ? "font-normal underline"
-                        : ""
+                      cn("", pathname == "/form"
+                      ? "font-normal underline"
+                      : "")
                     }
                   >
                     Say Hi
@@ -88,7 +88,7 @@ const Header = () => {
             <Link
               href="/"
               className={
-                cn("") + pathname == "/" ? "font-normal underline" : ""
+                cn("", pathname == "/" ? "font-normal underline" : "")
               }
             >
               Work
@@ -98,7 +98,7 @@ const Header = () => {
             <Link
               href="/about"
               className={
-                cn("") + pathname == "/about" ? " font-normal underline" : ""
+                cn("", pathname == "/about" ? " font-normal underline" : "") 
               }
             >
               About
@@ -113,7 +113,7 @@ const Header = () => {
             <Link
               href="/form"
               className={
-                cn("") + pathname == "/form" ? "font-normal underline" : ""
+                cn("", pathname == "/form" ? "font-normal underline" : "")
               }
             >
               Say Hi

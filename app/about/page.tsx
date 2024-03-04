@@ -24,7 +24,7 @@ const About = () => {
             <span>
               <Link
                 href="https://www.conestogac.on.ca/about"
-                className="underline bg-gradient-to-r from-[#b69763] to-[#b69763] text-transparent bg-clip-text"
+                className="underline text-yellow-600"
                 target="_blank"
               >
                 Conestoga College
