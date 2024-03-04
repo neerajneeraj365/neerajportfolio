@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import emailjs from "@emailjs/browser";
@@ -10,8 +10,10 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   const sendEmail = () => {
-    
     const templateParams = JSON.stringify({
       from_name: email,
       to_name: "Neeraj",
@@ -31,16 +33,18 @@ const Form = () => {
         () => {
           console.log("SUCCESS!");
           setName("");
-          sendEmail();
+          setEmail("");
           setMessage("");
+          setSuccess(true);
         },
         (error) => {
           console.log("FAILED...", error.text);
+          setError(true);
         }
       );
   };
   return (
-    <div className="flex flex-col w-full justify-center items-center">
+    <section className="flex flex-col w-full justify-center items-center">
       <div className="flex flex-col gap-6 md:gap-8 my-8 lg:w-1/2">
         <p className="text-lg">Say Hi to me...</p>
         <p className="text-md text-gray-400">
@@ -70,7 +74,6 @@ const Form = () => {
               className="border-gray-200 border-b-2 h-10 bg-transparent outline-none"
               placeholder="xyz@gmail.com"
             />
-
             <textarea
               name="message"
               value={message}
@@ -87,9 +90,11 @@ const Form = () => {
               Submit
             </Button>
           </div>
+          {success && <span>Success</span>}
+          {error && <span>Error</span>}
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 
