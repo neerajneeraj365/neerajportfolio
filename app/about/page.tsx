@@ -84,7 +84,7 @@ const About = () => {
           <p className="md:tracking-wide">
             Design tools:- Figma, Adobe XD <br />
             Languages:- HTML, CSS, JavaScript <br />
-            Frameworks:- Front-end: React, Next, - Back-end: Node, Express{" "}
+            Frameworks:- Front-end: React, Next & Back-end: Node, Express{" "}
             <br />
             Databases:- MongoDB, SQL, Firebase <br />
             Libraries:- Material UI, Shadcn UI, Ant Design <br />
