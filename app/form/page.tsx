@@ -53,7 +53,7 @@ const Form = () => {
             href="mailto:nikatwork365@gmail.com"
             className="underline text-blue-700"
           >
-            nikatwork@gmail.com
+            nikatwork365@gmail.com
           </Link>
         </p>
         <form onSubmit={sendEmail}>
